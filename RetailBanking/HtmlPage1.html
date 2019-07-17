@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+	#wpcp-error-message {
+	    direction: ltr;
+	    text-align: center;
+	    transition: opacity 900ms ease 0s;
+	    z-index: 99999999;
+	}
+	.hideme {
+    	opacity:0;
+    	visibility: hidden;
+	}
+	.showme {
+    	opacity:1;
+    	visibility: visible;
+	}
+	.msgmsg-box-wpcp {
+		border-radius: 10px;
+		color: #555;
+		font-family: Tahoma;
+		font-size: 11px;
+		margin: 10px;
+		padding: 10px 36px;
+		position: fixed;
+		width: 255px;
+		top: 50%;
+  		left: 50%;
+  		margin-top: -10px;
+  		margin-left: -130px;
+  		-webkit-box-shadow: 0px 0px 34px 2px rgba(242,191,191,1);
+		-moz-box-shadow: 0px 0px 34px 2px rgba(242,191,191,1);
+		box-shadow: 0px 0px 34px 2px rgba(242,191,191,1);
+	}
+	.msgmsg-box-wpcp span {
+		font-weight:bold;
+		text-transform:uppercase;
+	}
+	.error-wpcp {		background:#e9ffd9 url('./img/error.png') no-repeat 10px 50%;
+		border:1px solid #f5aca6;
+	}
+	.success {
+		background:#e9ffd9 url('./img/success.png') no-repeat 10px 50%;
+		border:1px solid #a6ca8a;
+	}
+	.warning-wpcp {
+		background:#e9ffd9 url('./img/warning.png') no-repeat 10px 50%;
+		border:1px solid #f5aca6;
+	}
+	.notice {
+		background:#a6ca8a url('./img/notice.png') no-repeat 10px 50%;
+		border:1px solid #8ed9f6;
+	}
+    </style>
+
+
+<script>
+    var timeout_result;
+    function show_wpcp_message(Title,smessage) {
+        if (smessage !== "") {
+            var smessage_text = '<span>' + Title + ' </span><br/>' + smessage;
+            document.getElementById("wpcp-error-message").innerHTML = smessage_text;
+            document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp success showme";
+            clearTimeout(timeout_result);
+            timeout_result = setTimeout(hide_message, 3000);
+        }
+    }
+    function hide_message() {
+        document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp warning-wpcp hideme";
+    }
+	</script>
+</head>
+<body onload="show_wpcp_message('کاربر گرامی','اطلاعات شما با موفقیت ذخیره شد.')">
+    <div id="wpcp-error-message" class="msgmsg-box-wpcp warning-wpcp hideme"><span>Alert: </span>You are not allowed to copy content or view source</div>
+
+
+</body>
+</html>

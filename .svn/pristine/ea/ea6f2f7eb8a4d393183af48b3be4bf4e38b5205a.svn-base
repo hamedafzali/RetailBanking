@@ -1,0 +1,16 @@
+﻿Public Class UserAccessClass
+    Function CheckUser(tmp As Userinfo)
+        If tmp.Username = "admin" And tmp.Password = "123" Then
+            tmp.Name = "admin"
+            tmp.Family = "admin"
+            Return tmp
+        End If
+    End Function
+End Class
+Public Class Userinfo
+    Public Username
+    Public Password
+    Public Name As String
+    Public Family As String
+    Public AccessType As Integer
+End Class

@@ -1,0 +1,56 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="AmountSupervisorReport.aspx.vb" Inherits="RetailBanking.AmountSupervisorReport" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head" runat="server">
+
+    <title>سامانه اطلاعات دفاتر پست بانک ایران</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/resume.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="css/kamadatepicker.css" />
+    <script src="js/kamadatepicker.js"></script>
+
+
+</head>
+<body id="page-top">
+    <form id="form1" runat="server" class="text-right">
+        <div class="row"> <div class="col-sm-3">
+                <input type="button" value="نمایش" /></div>
+            
+            <div class="col-sm-3">
+                <input type="text" id="date1"></div>
+           <div class="col-sm-3"><span>:تاریخ را انتخاب کنید</span></div>
+
+
+        </div>
+    </form>
+    <script>
+        kamaDatepicker('date1', { buttonsColor: "red" });
+
+        var customOptions = {
+            placeholder: "روز / ماه / سال"
+			, twodigit: false
+			, closeAfterSelect: false
+			, nextButtonIcon: "fa fa-arrow-circle-right"
+			, previousButtonIcon: "fa fa-arrow-circle-left"
+			, buttonsColor: "blue"
+			, forceFarsiDigits: true
+			, markToday: true
+			, markHolidays: true
+			, highlightSelectedDay: true
+			, sync: true
+			, gotoToday: true
+        }
+
+
+        // for testing sync functionallity
+        $("#date2").val("1311/10/01");
+    </script>
+</body>
+</html>

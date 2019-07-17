@@ -1,0 +1,23 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="News.aspx.vb" Inherits="RetailBanking.News" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head" runat="server">
+    
+    <title>سامانه اطلاعات دفاتر پست بانک ایران</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/resume.min.css" rel="stylesheet">
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>

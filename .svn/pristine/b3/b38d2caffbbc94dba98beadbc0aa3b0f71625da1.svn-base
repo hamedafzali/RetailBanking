@@ -1,0 +1,59 @@
+﻿Imports System.Data.SqlClient
+
+Public Class Main
+    Inherits System.Web.UI.Page
+    Function fillMenu()
+
+    End Function
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim strHTML As String = ""
+        strHTML += "<ul class='navbar-nav'>"
+        strHTML += "<li class='nav-item'>اطاعات پایه</li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#news'>کشور</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#news'>استان</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#news'>شهر</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#Announcements'>اطلاعیه ها</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#login'>ورود به سیستم</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#Documents'>بخشنامه ها</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#SearchBranch'>جستجوی دفاتر</a></li>"
+        strHTML += "</ul>"
+        'navbarSupportedContent.InnerHtml = strHTML
+
+        FillGrid("شعبه")
+
+    End Sub
+    Function FillGrid(Tilte As String)
+        Dim strHTML As String = "<table id='restbl' class = 'table table-hover'><caption>" + Tilte + "</caption>"
+        strHTML += " <thead><tr><th>شناسه</th><th>نام</th></tr></thead>"
+        Dim queryString As String = "SELECT Id,Name,Id,Name,Id,Name,Id,Name FROM _Branch"
+        Using connection As New SqlConnection("workstation id=PBI;packet size=4096;user id=sa;data source=192.168.5.31;persist security info=True;initial catalog=Accounting;password=hamedA11;POOLING=FALSE;Enlist = false;Connect Timeout=500")
+            Dim command As New SqlCommand(queryString, connection)
+            Dim RowColor As String = "'success'"
+            connection.Open()
+            Dim reader As SqlDataReader = command.ExecuteReader()
+            Try
+               
+                strHTML += " <tbody>"
+                While reader.Read()
+                    Select Case RowColor
+                        Case "'success'"
+                            RowColor = "'danger'"
+                        Case Else
+                            RowColor = "'success'"
+                    End Select
+                    strHTML += "<tr class =" + RowColor + " >"
+                    ' strHTML += "<td><input type='checkbox' value=''></td>"
+                    For i As Integer = 0 To reader.FieldCount - 1
+                        strHTML += "<td>" + reader(i).ToString + "</td>"
+                    Next
+                    strHTML += " </tr>"
+                End While
+                strHTML += " </tbody></table>"
+            Finally
+                reader.Close()
+            End Try
+        End Using
+        tblResult1.InnerHtml = strHTML
+    End Function
+   
+End Class

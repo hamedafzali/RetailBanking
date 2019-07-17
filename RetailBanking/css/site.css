@@ -1,0 +1,32 @@
+﻿.ResultTbl
+{
+    color:black;
+    text-align:center;
+    color:black;
+    background-color:silver;
+    border-collapse: collapse;
+    width: 250%;
+    overflow-x:visible;
+    border:groove;
+}
+
+.pagination a
+{
+    color:#0094ff;
+}
+
+.panel ul
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+.news-item
+{
+    padding:4px 4px;
+    margin:0px;
+    border-bottom:0px dotted #555; 
+    height:30px;
+    
+}

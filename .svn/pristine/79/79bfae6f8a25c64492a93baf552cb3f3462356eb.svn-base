@@ -1,0 +1,16 @@
+﻿Public Class Main
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim strHTML As String = ""
+        strHTML += "<ul class='navbar-nav'>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#news'>اخبار</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#Announcements'>اطلاعیه ها</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#login'>ورود به سیستم</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#Documents'>بخشنامه ها</a></li>"
+        strHTML += "<li class='nav-item'><a class='nav-link js-scroll-trigger' href='#SearchBranch'>جستجوی دفاتر</a></li>"
+        strHTML += "</ul>"
+        navbarSupportedContent.InnerHtml = strHTML
+    End Sub
+
+End Class
